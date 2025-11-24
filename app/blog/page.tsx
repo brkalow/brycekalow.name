@@ -15,12 +15,15 @@ export default async function BlogIndex() {
           "text-2xl mb-6 mt-0 font-normal flex gap-4 flex-row tracking-tight font-mono items-center justify-between"
         )}
       >
-        <span>
-          <span className="text-black/40 dark:text-white/40 font-sans tracking-normal">
-            //
-          </span>{" "}
-          Posts
-        </span>
+        <div className="flex flex-col">
+          <Link
+            href="/"
+            className="font-normal font-sans tracking-tight inline-block text-sm text-black/40 dark:text-white/40"
+          >
+            bryce kalow/
+          </Link>
+          <span>Writing</span>
+        </div>
       </h1>
       {posts.map((post) => (
         <div key={post.title} className={cn("block mb-4")}>

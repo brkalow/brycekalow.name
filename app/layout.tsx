@@ -32,9 +32,7 @@ export default function RootLayout({ children }) {
       <body
         className={cn(
           "bg-gray-50 text-black/75 font-sans",
-          "bg-[linear-gradient(to_right,#f1f1f1_1px,transparent_1px),linear-gradient(to_bottom,#f1f1f1_1px,transparent_1px)] bg-[size:48px_48px]",
-          "dark:bg-black dark:text-white/75",
-          "dark:bg-[linear-gradient(to_right,#0b0b0b_1px,transparent_1px),linear-gradient(to_bottom,#0b0b0b_1px,transparent_1px)] bg-[size:48px_48px]"
+          "dark:bg-stone-900 dark:text-white/75"
         )}
       >
         <script
@@ -69,10 +67,10 @@ export default function RootLayout({ children }) {
           }}
         />
         <StyledJsxRegistry>
-          <Header />
+          {/* <Header /> */}
           <div className="wrapper px-8 py-[4.5rem]">
             <main role="main" className={cn("flex flex-row")}>
-              <div className="content max-w-[min(700px,_100%)] pt-8 pb-16 lg:pb-20">
+              <div className="content lg:min-w-[600px] max-w-[min(700px,100%)] pt-8 pb-16 lg:pb-20 mx-auto">
                 {children}
               </div>
               {/* <nav className="">Blog</nav> */}

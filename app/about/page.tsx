@@ -9,6 +9,7 @@ import dadPic from "./dad.jpeg";
 import dogPic from "./dog.jpeg";
 import greecePic from "./greece.jpeg";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About me",
@@ -22,12 +23,15 @@ export default function AboutPage() {
           "text-2xl mb-6 mt-0 font-normal flex gap-4 flex-row tracking-tight font-mono items-center justify-between"
         )}
       >
-        <span>
-          <span className="text-black/40 dark:text-white/40 font-sans tracking-normal">
-            //
-          </span>{" "}
-          About me
-        </span>
+        <div className="flex flex-col">
+          <Link
+            href="/"
+            className="font-normal font-sans tracking-tight inline-block text-sm text-black/40 dark:text-white/40"
+          >
+            bryce kalow/
+          </Link>
+          <span>About me</span>
+        </div>
         <Image
           src={profilePic}
           alt="profile shot"
@@ -42,7 +46,7 @@ export default function AboutPage() {
       </h1>
       <section data-post>
         <p>
-          Hiya, I'm Bryce. I'm currently a Staff Software Engineer at{" "}
+          Hiya, I'm Bryce. I'm currently an engineer at{" "}
           <a
             href="https://www.clerk.com"
             target="_blank"
@@ -56,8 +60,8 @@ export default function AboutPage() {
               height="18"
             />
           </a>{" "}
-          working on our framework integrations and other interesting
-          engineering and product problems.
+          obsessing over developer experience, for humans and agents, and
+          building a great product.
         </p>
         <p>
           At work, I have a deep interest in creating tools and platforms for
@@ -77,8 +81,7 @@ export default function AboutPage() {
           problems for the business.
         </p>
         <p>
-          Outside of work, I'm learning how to be a dad, taking on projects
-          around the house, playing games when I have the time, and racing
+          Outside of work, I'm learning how to be a dad, biking, and racing
           sailboats competitively across the country. If any of this sounds
           interesting to you, let's chat!
         </p>

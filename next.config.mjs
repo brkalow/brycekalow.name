@@ -1,4 +1,5 @@
 export default {
+  cacheComponents: true,
   experimental: {
     outputFileTracingIncludes: {
       "/notes/*": [
