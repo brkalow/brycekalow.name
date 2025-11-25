@@ -6,9 +6,9 @@ export function useLinkHighlight() {
   const highlightRef = React.useRef<HTMLDivElement>(null);
   const wrapperRef = React.useRef<HTMLUListElement>(null);
 
-  const isHoveredFromNull = React.useRef<boolean>();
-  const wrapperBoundingBox = React.useRef<DOMRect>();
-  const tabBoundingBox = React.useRef<DOMRect>();
+  const isHoveredFromNull = React.useRef<boolean>(false);
+  const wrapperBoundingBox = React.useRef<DOMRect | undefined>(undefined);
+  const tabBoundingBox = React.useRef<DOMRect | undefined>(undefined);
 
   const highlightStyles = {} as React.CSSProperties;
 

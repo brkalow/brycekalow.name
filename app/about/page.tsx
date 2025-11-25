@@ -1,6 +1,6 @@
 import { cn } from "lib/cn";
 import Image from "next/image";
-import profilePic from "./profile_pic.jpeg";
+import profilePic from "./avatar.png";
 import icelandPic from "./iceland.jpeg";
 import confTalkPic from "./conf_talk.jpeg";
 import sailing1Pic from "./sailing_1.jpeg";
@@ -20,13 +20,13 @@ export default function AboutPage() {
     <>
       <h1
         className={cn(
-          "text-2xl mb-6 mt-0 font-normal flex gap-4 flex-row tracking-tight font-mono items-center justify-between"
+          "text-2xl mb-8 mt-0 font-normal flex gap-4 flex-row tracking-wide font-mono items-center justify-between"
         )}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-1">
           <Link
             href="/"
-            className="font-normal font-sans tracking-tight inline-block text-sm text-black/40 dark:text-white/40"
+            className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/50 dark:hover:text-white/50"
           >
             bryce kalow/
           </Link>
@@ -44,13 +44,13 @@ export default function AboutPage() {
           placeholder="blur"
         />
       </h1>
-      <section data-post>
+      <section data-post className="leading-relaxed">
         <p>
           Hiya, I'm Bryce. I'm currently an engineer at{" "}
           <a
             href="https://www.clerk.com"
             target="_blank"
-            className={cn("underline decoration-sky-500")}
+            className="transition-opacity hover:opacity-70"
           >
             <Image
               className="inline align-middle mt-[-4px] invert dark:invert-0"
@@ -86,8 +86,8 @@ export default function AboutPage() {
           interesting to you, let's chat!
         </p>
       </section>
-      <section className="grid auto-rows-[128px] grid-cols-2 md:grid-cols-4 gap-4">
-        <figure className="row-span-1 col-span-2 relative rounded-lg overflow-hidden m-0">
+      <section className="grid auto-rows-[128px] grid-cols-2 md:grid-cols-4 gap-3 mt-8">
+        <figure className="row-span-1 col-span-2 relative rounded-xl overflow-hidden m-0">
           <Image
             fill
             src={icelandPic}
@@ -97,7 +97,7 @@ export default function AboutPage() {
             placeholder="blur"
           />
         </figure>
-        <figure className="row-span-2 col-span-2 relative rounded-lg overflow-hidden m-0">
+        <figure className="row-span-2 col-span-2 relative rounded-xl overflow-hidden m-0">
           <Image
             fill
             src={confTalkPic}
@@ -108,7 +108,7 @@ export default function AboutPage() {
           />
         </figure>
 
-        <figure className="row-span-1 col-span-1 relative rounded-lg overflow-hidden m-0">
+        <figure className="row-span-1 col-span-1 relative rounded-xl overflow-hidden m-0">
           <Image
             fill
             src={sailing1Pic}
@@ -118,7 +118,7 @@ export default function AboutPage() {
             placeholder="blur"
           />
         </figure>
-        <figure className="row-span-1 col-span-1 relative rounded-lg overflow-hidden m-0">
+        <figure className="row-span-1 col-span-1 relative rounded-xl overflow-hidden m-0">
           {" "}
           <Image
             fill
@@ -129,7 +129,7 @@ export default function AboutPage() {
             placeholder="blur"
           />{" "}
         </figure>
-        <figure className="row-span-2 col-span-2 relative rounded-lg overflow-hidden m-0">
+        <figure className="row-span-2 col-span-2 relative rounded-xl overflow-hidden m-0">
           {" "}
           <Image
             fill
@@ -140,7 +140,7 @@ export default function AboutPage() {
             placeholder="blur"
           />{" "}
         </figure>
-        <figure className="row-span-2 relative rounded-lg overflow-hidden m-0">
+        <figure className="row-span-2 relative rounded-xl overflow-hidden m-0">
           <Image
             fill
             src={dogPic}
@@ -150,7 +150,7 @@ export default function AboutPage() {
             placeholder="blur"
           />
         </figure>
-        <figure className="row-span-2 col-span-1 relative rounded-lg overflow-hidden m-0">
+        <figure className="row-span-2 col-span-1 relative rounded-xl overflow-hidden m-0">
           <Image
             fill
             src={greecePic}

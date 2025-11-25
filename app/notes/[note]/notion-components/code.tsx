@@ -2,8 +2,7 @@ import { ExtendedRecordMap, type CodeBlock } from "notion-types";
 import { getBlockTitle } from "notion-utils";
 import { Theme } from "rehype-pretty-code";
 
-import { addClassToHast } from "shikiji";
-import { codeToHtml } from "shikiji/bundle/web";
+import { addClassToHast, codeToHtml } from "shiki";
 
 const SHIKI_THEMES: Record<string, Theme> = {
   dark: "vitesse-black",

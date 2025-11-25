@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 
 const Home = () => (
   <>
-    <span className="font-normal font-mono tracking-tight inline-block text-sm text-black/40 dark:text-white/40">
+    <span className="font-normal font-mono tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30">
       v<AgeVersion />
     </span>
     <div className="mb-6 flex flex-row gap-4 font-mono">
-      <span className="font-normal tracking-tight inline-block text-2xl">
+      <span className="font-normal tracking-wide inline-block text-2xl">
         <Typewriter text="bryce kalow" />
 
         <span className="inline-block animate-blink font-normal text-black/40 dark:text-white/40 motion-reduce:hidden">
@@ -28,7 +28,7 @@ const Home = () => (
         </span>
       </span>
     </div>
-    <div className={cn("max-w-[600px] text-lg gap-4 flex flex-col")}>
+    <div className={cn("max-w-[600px] text-lg gap-4 flex flex-col leading-relaxed")}>
       <p>
         I am a developer working on the web, focused on creating tools and
         workflows that enable teams and individuals to iterate quickly.
@@ -51,7 +51,7 @@ const Home = () => (
         If you're curious to learn more about me,{" "}
         <Link
           className={cn(
-            "transition-colors underline underline-offset-2 decoration-white/30 hover:decoration-white/50"
+            "transition-colors underline underline-offset-4 decoration-dotted decoration-white/20 hover:decoration-white/40"
           )}
           href="/about"
         >
@@ -60,7 +60,7 @@ const Home = () => (
         . You can also{" "}
         <Link
           className={cn(
-            "transition-colors underline underline-offset-2 decoration-white/30 hover:decoration-white/50"
+            "transition-colors underline underline-offset-4 decoration-dotted decoration-white/20 hover:decoration-white/40"
           )}
           href="/blog"
         >
@@ -69,7 +69,7 @@ const Home = () => (
         ,{" "}
         <a
           className={cn(
-            "transition-colors underline underline-offset-2 decoration-white/30 hover:decoration-white/50"
+            "transition-colors underline underline-offset-4 decoration-dotted decoration-white/20 hover:decoration-white/40"
           )}
           target="_blank"
           href="https://github.com/brkalow"
@@ -79,7 +79,7 @@ const Home = () => (
         , or{" "}
         <a
           className={cn(
-            "transition-colors underline underline-offset-2 decoration-white/30 hover:decoration-white/50"
+            "transition-colors underline underline-offset-4 decoration-dotted decoration-white/20 hover:decoration-white/40"
           )}
           target="_blank"
           href="https://x.com/brkalow"
@@ -89,29 +89,29 @@ const Home = () => (
         .
       </p>
       <div className="mt-4">
-        <h2 className="mb-2 border-b text-white/90 border-white/10 pb-2">
+        <h2 className="mb-4 border-b text-xs uppercase tracking-widest text-white/50 border-white/5 pb-3">
           Connect
         </h2>
-        <dl className="grid grid-cols-2 gap-2 max-w-[300px] my-4 text-base">
-          <dt className="text-white/50">Email</dt>
+        <dl className="grid grid-cols-[100px_1fr] gap-y-3 gap-x-4 my-4 text-sm">
+          <dt className="text-white/40">Email</dt>
           <dd>
-            <a href="mailto:hello@brycekalow.name">hello@brycekalow.name</a>
+            <a className="transition-colors hover:text-white" href="mailto:hello@brycekalow.name">hello@brycekalow.name</a>
           </dd>
-          <dt className="text-white/50">X</dt>
+          <dt className="text-white/40">X</dt>
           <dd>
-            <a href="https://x.com/brkalow" target="_blank">
+            <a className="transition-colors hover:text-white" href="https://x.com/brkalow" target="_blank">
               @brkalow
             </a>
           </dd>
-          <dt className="text-white/50">GitHub</dt>
+          <dt className="text-white/40">GitHub</dt>
           <dd>
-            <a href="https://github.com/brkalow" target="_blank">
+            <a className="transition-colors hover:text-white" href="https://github.com/brkalow" target="_blank">
               @brkalow
             </a>
           </dd>
-          <dt className="text-white/50">LinkedIn</dt>
+          <dt className="text-white/40">LinkedIn</dt>
           <dd>
-            <a href="https://www.linkedin.com/in/brkalow/" target="_blank">
+            <a className="transition-colors hover:text-white" href="https://www.linkedin.com/in/brkalow/" target="_blank">
               @brkalow
             </a>
           </dd>

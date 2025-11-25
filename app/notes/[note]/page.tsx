@@ -3,8 +3,6 @@ import { getPageTitle } from "notion-utils";
 import { fetchNoteContent, fetchNotes } from "./fetch";
 import { Renderer } from "./renderer";
 
-export const dynamicParams = false;
-
 export async function generateMetadata({ params }) {
   const notesMap = await fetchNotes();
   const note = notesMap[params.note];

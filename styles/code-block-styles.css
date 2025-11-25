@@ -7,15 +7,15 @@ code {
 
 [data-rehype-pretty-code-figure],
 [data-solid-bg] {
-  @apply relative after:bg-white dark:after:bg-black after:absolute after:inset-0 after:-z-10;
+  @apply relative overflow-hidden after:bg-white dark:after:bg-black after:absolute after:inset-0 after:-z-10;
 }
 
 pre[data-language] {
-  @apply border rounded-lg border-black/25 bg-gray-50 dark:border-white/25 dark:bg-gray-500/5 text-sm;
+  @apply border rounded-lg border-black/25 bg-gray-50 dark:border-white/25 dark:bg-gray-500/5 text-sm overflow-x-auto;
 }
 
 pre > code {
-  @apply grid max-w-full overflow-x-auto py-2 px-3;
+  @apply grid max-w-full py-2 px-3;
 
   tab-size: 2;
 }

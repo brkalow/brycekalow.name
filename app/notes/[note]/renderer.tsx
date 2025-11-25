@@ -171,7 +171,7 @@ function Block({
       const isTopLevel =
         block.type !== content.block[block.parent_id]?.value?.type;
 
-      let output: JSX.Element | null = null;
+      let output: React.ReactNode = null;
 
       if (block.content) {
         output = (
