@@ -38,8 +38,8 @@ const mdxRemoteOptions: MDXRemoteProps["options"] = {
 };
 
 export async function generateStaticParams() {
-  return (await getPosts()).map((ent) => ({
-    post: ent.name.split(".")[0],
+  return (await getPosts()).map((post) => ({
+    post: post.split(".")[0],
   }));
 }
 

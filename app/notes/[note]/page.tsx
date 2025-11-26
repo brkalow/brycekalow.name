@@ -20,6 +20,7 @@ export async function generateStaticParams() {
 }
 
 export default async function NotesPage({ params }) {
+  "use cache";
   const notesMap = await fetchNotes();
   const note = notesMap[params.note];
 
