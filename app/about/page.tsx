@@ -53,7 +53,7 @@ export default function AboutPage() {
             className="transition-opacity hover:opacity-70"
           >
             <Image
-              className="inline align-middle mt-[-4px] invert dark:invert-0"
+              className="inline align-middle mt-[-5px] invert dark:invert-0"
               src="/img/clerk-logo-white.svg"
               alt="Clerk"
               width="56"

@@ -26,12 +26,12 @@ export function Header() {
         animate={{ y: 0 }}
         className={cn(
           "max-w-full lg:max-w-[500px] flex flex-row justify-between items-center rounded-full backdrop-blur-md px-5 py-2 border shadow-md gap-4",
-          "bg-black/75 shadow-black/25 border-white/25 text-white/90",
-          "dark:bg-black/50 dark:border-white/25 dark:shadow-inherit"
+          "bg-white/75 shadow-black/10 border-black/10 text-black/90",
+          "dark:bg-black/50 dark:border-white/25 dark:shadow-inherit dark:text-white/90"
         )}
       >
         <WordMark short className="mt-[-1px]" />
-        <span className="text-white/25">|</span>
+        <span className="text-black/25 dark:text-white/25">|</span>
         <nav className="flex gap-4 items-center mt-[-1px] ml-4">
           <Link
             href="/about"
