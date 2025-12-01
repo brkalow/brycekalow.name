@@ -29,8 +29,9 @@ export async function generateStaticParams(): Promise<{ note: string }[]> {
   return Object.values(notesMap).map(({ slug }) => ({ note: slug }));
 }
 
-async function NoteContent({ noteSlug }: { noteSlug: string }) {
+export default async function NotesPage({ params }) {
   "use cache";
+  const { note: noteSlug } = await params;
   const notesMap = await fetchNotes();
   const note = notesMap[noteSlug];
 
@@ -38,15 +39,9 @@ async function NoteContent({ noteSlug }: { noteSlug: string }) {
     notFound();
   }
 
-  return <Renderer recordId={note.id} />;
-}
-
-export default async function NotesPage({ params }) {
-  const { note: noteSlug } = await params;
-
   return (
     <section data-post>
-      <NoteContent noteSlug={noteSlug} />
+      <Renderer recordId={note.id} />
     </section>
   );
 }
