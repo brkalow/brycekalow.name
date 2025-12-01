@@ -4,15 +4,13 @@ import { fetchNoteContent, fetchNotes } from "./fetch";
 import { Renderer } from "./renderer";
 
 export async function generateMetadata({ params }) {
-  if (!process.env.NOTION_NOTES_COLLECTION_ID) {
+  const notesMap = await fetchNotes();
+  const note = notesMap[params.note];
+
+  if (!note) {
     return { title: "Notes" };
   }
-  const { note: noteSlug } = await params;
-  const notesMap = await fetchNotes();
-  const note = notesMap[noteSlug];
-  if (!note) {
-    return { title: "Note not found" };
-  }
+
   const content = await fetchNoteContent(note.id);
 
   return {
@@ -20,20 +18,17 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export async function generateStaticParams(): Promise<{ note: string }[]> {
-  if (!process.env.NOTION_NOTES_COLLECTION_ID) {
-    return [{ note: "_placeholder" }];
-  }
+export async function generateStaticParams() {
   const notesMap = await fetchNotes();
+  const params = Object.values(notesMap).map(({ slug }) => ({ note: slug }));
 
-  return Object.values(notesMap).map(({ slug }) => ({ note: slug }));
+  // Return a placeholder if no notes exist to satisfy cacheComponents requirement
+  return params.length > 0 ? params : [{ note: "_placeholder" }];
 }
 
 export default async function NotesPage({ params }) {
-  "use cache";
-  const { note: noteSlug } = await params;
   const notesMap = await fetchNotes();
-  const note = notesMap[noteSlug];
+  const note = notesMap[params.note];
 
   if (!note) {
     notFound();
