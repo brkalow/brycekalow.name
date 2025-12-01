@@ -1,5 +1,6 @@
 import { cn } from "lib/cn";
 import Image from "next/image";
+import { ClerkLogo } from "../../components/clerk-logo";
 import profilePic from "./avatar.png";
 import icelandPic from "./iceland.jpeg";
 import confTalkPic from "./conf_talk.jpeg";
@@ -52,13 +53,7 @@ export default function AboutPage() {
             target="_blank"
             className="transition-opacity hover:opacity-70"
           >
-            <Image
-              className="inline align-middle mt-[-5px] invert dark:invert-0"
-              src="/img/clerk-logo-white.svg"
-              alt="Clerk"
-              width="56"
-              height="18"
-            />
+            <ClerkLogo className="inline align-middle mt-[-3px] h-[16px] w-auto" />
           </a>{" "}
           obsessing over developer experience, for humans and agents, and
           building a great product.
