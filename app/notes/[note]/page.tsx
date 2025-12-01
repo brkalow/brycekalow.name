@@ -4,8 +4,15 @@ import { fetchNoteContent, fetchNotes } from "./fetch";
 import { Renderer } from "./renderer";
 
 export async function generateMetadata({ params }) {
+  if (!process.env.NOTION_NOTES_COLLECTION_ID) {
+    return { title: "Notes" };
+  }
+  const { note: noteSlug } = await params;
   const notesMap = await fetchNotes();
-  const note = notesMap[params.note];
+  const note = notesMap[noteSlug];
+  if (!note) {
+    return { title: "Note not found" };
+  }
   const content = await fetchNoteContent(note.id);
 
   return {
@@ -13,7 +20,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ note: string }[]> {
+  if (!process.env.NOTION_NOTES_COLLECTION_ID) {
+    return [{ note: "_placeholder" }];
+  }
   const notesMap = await fetchNotes();
 
   return Object.values(notesMap).map(({ slug }) => ({ note: slug }));
@@ -21,8 +31,9 @@ export async function generateStaticParams() {
 
 export default async function NotesPage({ params }) {
   "use cache";
+  const { note: noteSlug } = await params;
   const notesMap = await fetchNotes();
-  const note = notesMap[params.note];
+  const note = notesMap[noteSlug];
 
   if (!note) {
     notFound();

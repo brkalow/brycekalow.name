@@ -11,8 +11,11 @@ export const fetchNoteContent = cache(async function fetchNoteContent(
 });
 
 export const fetchNotes = cache(async function fetchNotesCollection() {
+  if (!process.env.NOTION_NOTES_COLLECTION_ID) {
+    return {};
+  }
   const collection = await fetchNoteContent(
-    process.env.NOTION_NOTES_COLLECTION_ID!
+    process.env.NOTION_NOTES_COLLECTION_ID
   );
 
   const notes: Record<
