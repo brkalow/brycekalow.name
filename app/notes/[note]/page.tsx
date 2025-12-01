@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getPageTitle } from "notion-utils";
-import { Suspense } from "react";
 import { fetchNoteContent, fetchNotes } from "./fetch";
 import { Renderer } from "./renderer";
 
@@ -31,6 +30,7 @@ export async function generateStaticParams(): Promise<{ note: string }[]> {
 }
 
 async function NoteContent({ noteSlug }: { noteSlug: string }) {
+  "use cache";
   const notesMap = await fetchNotes();
   const note = notesMap[noteSlug];
 
@@ -46,9 +46,7 @@ export default async function NotesPage({ params }) {
 
   return (
     <section data-post>
-      <Suspense fallback={<div>Loading...</div>}>
-        <NoteContent noteSlug={noteSlug} />
-      </Suspense>
+      <NoteContent noteSlug={noteSlug} />
     </section>
   );
 }
