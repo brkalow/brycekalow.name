@@ -5,7 +5,6 @@ import StyledJsxRegistry from "./style-regsitry";
 import "./globals.css";
 import "../styles/code-block-styles.css";
 import { cn } from "lib/cn";
-import { Header } from "./header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -67,15 +66,12 @@ export default function RootLayout({ children }) {
           }}
         />
         <StyledJsxRegistry>
-          {/* <Header /> */}
           <div className="wrapper px-8 py-[4.5rem]">
             <main role="main" className={cn("flex flex-row")}>
               <div className="content lg:min-w-[600px] max-w-[min(700px,100%)] pt-8 pb-16 lg:pb-20 mx-auto">
                 {children}
               </div>
-              {/* <nav className="">Blog</nav> */}
             </main>
-            {/* <Footer /> */}
           </div>
         </StyledJsxRegistry>
       </body>

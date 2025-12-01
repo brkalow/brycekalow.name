@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Suspense } from "react";
 import { FormattedDate } from "../../components/formatted-date";
 import { getPostList } from "../../utilities/posts";
 import { cn } from "lib/cn";

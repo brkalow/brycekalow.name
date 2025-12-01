@@ -1,5 +1,4 @@
 import React from "react";
-import SocialIcons from "../components/social-icons";
 import { cn } from "lib/cn";
 import Image from "next/image";
 import { Typewriter } from "./typewriter";
@@ -39,7 +38,7 @@ const Home = () => (
       </p>
       <p>
         Currently at&nbsp;&nbsp;
-        <a href="https://www.clerk.com" target="_blank" className={cn()}>
+        <a href="https://www.clerk.com" target="_blank" className="transition-opacity hover:opacity-70">
           <Image
             className="inline align-middle mt-[-6px] invert dark:invert-0"
             src="/img/clerk-logo-white.svg"
@@ -138,7 +137,6 @@ const Home = () => (
           </dd>
         </dl>
       </div>
-      {/* <SocialIcons className="mt-6" /> */}
     </div>
   </>
 );

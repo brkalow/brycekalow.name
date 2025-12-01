@@ -6,13 +6,18 @@ function calculateVersion() {
 
   let years = now.getFullYear() - birthday.getFullYear();
   let months = now.getMonth() - birthday.getMonth();
+  let days = now.getDate() - birthday.getDate();
+
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
 
   if (months < 0) {
     years--;
     months += 12;
   }
-
-  const days = now.getDate() - birthday.getDate();
 
   return `${years}.${months}.${days}`;
 }
