@@ -5,7 +5,7 @@ export function ClerkLogo({ className }: { className?: string }) {
     <>
       {/* Light mode logo (dark text) */}
       <svg
-        className={cn("dark:hidden", className)}
+        className={cn("inline dark:hidden", className)}
         viewBox="0 0 441 128"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ export function ClerkLogo({ className }: { className?: string }) {
 
       {/* Dark mode logo (white text) */}
       <svg
-        className={cn("hidden dark:block", className)}
+        className={cn("hidden dark:inline", className)}
         viewBox="0 0 441 128"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
