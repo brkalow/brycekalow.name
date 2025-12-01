@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getPageTitle } from "notion-utils";
+import { Suspense } from "react";
 import { fetchNoteContent, fetchNotes } from "./fetch";
 import { Renderer } from "./renderer";
 
@@ -29,9 +30,7 @@ export async function generateStaticParams(): Promise<{ note: string }[]> {
   return Object.values(notesMap).map(({ slug }) => ({ note: slug }));
 }
 
-export default async function NotesPage({ params }) {
-  "use cache";
-  const { note: noteSlug } = await params;
+async function NoteContent({ noteSlug }: { noteSlug: string }) {
   const notesMap = await fetchNotes();
   const note = notesMap[noteSlug];
 
@@ -39,9 +38,17 @@ export default async function NotesPage({ params }) {
     notFound();
   }
 
+  return <Renderer recordId={note.id} />;
+}
+
+export default async function NotesPage({ params }) {
+  const { note: noteSlug } = await params;
+
   return (
     <section data-post>
-      <Renderer recordId={note.id} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <NoteContent noteSlug={noteSlug} />
+      </Suspense>
     </section>
   );
 }
