@@ -53,7 +53,7 @@ export default function AboutPage() {
             target="_blank"
             className="transition-opacity hover:opacity-70"
           >
-            <ClerkLogo className="align-baseline h-[14px] w-auto" />
+            <ClerkLogo className="inline align-middle mt-[-3px] h-[16px] w-auto" />
           </a>{" "}
           obsessing over developer experience, for humans and agents, and
           building a great product.
