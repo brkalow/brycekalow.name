@@ -1,9 +1,11 @@
+import { cn } from "lib/cn";
+
 export function ClerkLogo({ className }: { className?: string }) {
   return (
     <>
       {/* Light mode logo (dark text) - shown in light mode only */}
       <svg
-        className={`inline-block dark:hidden ${className ?? ""}`}
+        className={cn(className, "inline-block dark:hidden")}
         viewBox="0 0 441 128"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +29,7 @@ export function ClerkLogo({ className }: { className?: string }) {
 
       {/* Dark mode logo (white text) - shown in dark mode only */}
       <svg
-        className={`hidden dark:inline-block ${className ?? ""}`}
+        className={cn(className, "hidden dark:inline-block")}
         viewBox="0 0 441 128"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
