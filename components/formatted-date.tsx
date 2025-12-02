@@ -1,25 +1,30 @@
-import { useMemo } from "react";
+function formatDate(date: string | number | Date) {
+  let dateToFormat: number | Date = date as Date;
 
-export function FormattedDate({ date }) {
-  const formattedDate = useMemo(() => {
-    let dateToFormat = date;
+  if (typeof date === "string") {
+    const [year, month, day] = date.split("-");
+    dateToFormat = Date.UTC(
+      Number.parseInt(year, 10),
+      Number.parseInt(month, 10) - 1,
+      Number.parseInt(day, 10)
+    );
+  } else if (typeof date === "number") {
+    dateToFormat = date;
+  }
 
-    if (typeof date === "string") {
-      const [year, month, day] = date.split("-");
-      dateToFormat = Date.UTC(
-        Number.parseInt(year, 10),
-        Number.parseInt(month, 10) - 1,
-        Number.parseInt(day, 10)
-      );
-    }
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(dateToFormat);
+}
 
-    return new Intl.DateTimeFormat("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      timeZone: "UTC",
-    }).format(dateToFormat);
-  }, [date]);
-
-  return <>{formattedDate}</>;
+export function FormattedDate({
+  date,
+}: {
+  date: string | number | Date | undefined;
+}) {
+  if (!date) return null;
+  return <>{formatDate(date)}</>;
 }

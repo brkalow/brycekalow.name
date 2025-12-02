@@ -1,5 +1,6 @@
 import { cn } from "lib/cn";
 import Image from "next/image";
+import { ClerkLogo } from "../../components/clerk-logo";
 import profilePic from "./avatar.png";
 import icelandPic from "./iceland.jpeg";
 import confTalkPic from "./conf_talk.jpeg";
@@ -26,7 +27,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-1">
           <Link
             href="/"
-            className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/50 dark:hover:text-white/50"
+            className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/60 dark:hover:text-white/60"
           >
             bryce kalow/
           </Link>
@@ -52,13 +53,7 @@ export default function AboutPage() {
             target="_blank"
             className="transition-opacity hover:opacity-70"
           >
-            <Image
-              className="inline align-middle mt-[-5px] invert dark:invert-0"
-              src="/img/clerk-logo-white.svg"
-              alt="Clerk"
-              width="56"
-              height="18"
-            />
+            <ClerkLogo className="align-baseline h-[14px] w-auto" />
           </a>{" "}
           obsessing over developer experience, for humans and agents, and
           building a great product.
@@ -119,7 +114,6 @@ export default function AboutPage() {
           />
         </figure>
         <figure className="row-span-1 col-span-1 relative rounded-xl overflow-hidden m-0">
-          {" "}
           <Image
             fill
             src={sailing2Pic}
@@ -127,10 +121,9 @@ export default function AboutPage() {
             alt="Four people on a sailboat with a spinnaker up"
             className="object-cover"
             placeholder="blur"
-          />{" "}
+          />
         </figure>
         <figure className="row-span-2 col-span-2 relative rounded-xl overflow-hidden m-0">
-          {" "}
           <Image
             fill
             src={dadPic}
@@ -138,7 +131,7 @@ export default function AboutPage() {
             alt="Me being a dad"
             className="object-cover"
             placeholder="blur"
-          />{" "}
+          />
         </figure>
         <figure className="row-span-2 relative rounded-xl overflow-hidden m-0">
           <Image

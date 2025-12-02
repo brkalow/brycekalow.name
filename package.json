@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prebuild": "bun run ./scripts/generate-feed.ts"
+    "prebuild": "npx tsx ./scripts/generate-feed.ts"
   },
   "dependencies": {
     "clsx": "^2.1.0",

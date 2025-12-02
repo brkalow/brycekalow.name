@@ -1,10 +1,9 @@
 import React from "react";
-import SocialIcons from "../components/social-icons";
 import { cn } from "lib/cn";
-import Image from "next/image";
 import { Typewriter } from "./typewriter";
 import { Metadata } from "next";
 import { AgeVersion } from "../components/age-version";
+import { ClerkLogo } from "../components/clerk-logo";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -39,14 +38,12 @@ const Home = () => (
       </p>
       <p>
         Currently at&nbsp;&nbsp;
-        <a href="https://www.clerk.com" target="_blank" className={cn()}>
-          <Image
-            className="inline align-middle mt-[-6px] invert dark:invert-0"
-            src="/img/clerk-logo-white.svg"
-            alt="Clerk"
-            width="64"
-            height="24"
-          />
+        <a
+          href="https://www.clerk.com"
+          target="_blank"
+          className="transition-opacity hover:opacity-70"
+        >
+          <ClerkLogo className="inline align-middle mt-[-4px] h-[18px] w-auto" />
         </a>
         , obsessing over developer experience, for humans and agents, and
         building a great product.
@@ -138,7 +135,6 @@ const Home = () => (
           </dd>
         </dl>
       </div>
-      {/* <SocialIcons className="mt-6" /> */}
     </div>
   </>
 );
