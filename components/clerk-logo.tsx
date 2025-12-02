@@ -3,7 +3,7 @@ export function ClerkLogo({ className }: { className?: string }) {
     <>
       {/* Light mode logo (dark text) - shown in light mode only */}
       <svg
-        className={`dark:hidden ${className ?? ""}`}
+        className={`inline-block dark:hidden ${className ?? ""}`}
         viewBox="0 0 441 128"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ export function ClerkLogo({ className }: { className?: string }) {
 
       {/* Dark mode logo (white text) - shown in dark mode only */}
       <svg
-        className={`hidden dark:inline ${className ?? ""}`}
+        className={`hidden dark:inline-block ${className ?? ""}`}
         viewBox="0 0 441 128"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
