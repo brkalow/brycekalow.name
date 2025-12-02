@@ -66,9 +66,9 @@ export default function RootLayout({ children }) {
           }}
         />
         <StyledJsxRegistry>
-          <div className="wrapper px-8 py-[4.5rem]">
+          <div className="wrapper px-8 py-16 lg:py-20">
             <main role="main" className={cn("flex flex-row")}>
-              <div className="content lg:min-w-[600px] max-w-[min(700px,100%)] pt-8 pb-16 lg:pb-20 mx-auto">
+              <div className="content lg:min-w-[600px] max-w-[min(700px,100%)] pt-8 pb-16 lg:pb-24 mx-auto">
                 {children}
               </div>
             </main>

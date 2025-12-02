@@ -64,20 +64,20 @@ section[data-post] {
   }
 
   h1 {
-    @apply text-2xl mb-2;
+    @apply text-2xl mb-3 mt-8;
   }
 
   h2 {
-    @apply text-xl mt-10;
+    @apply text-xl mt-12 mb-3;
   }
 
   h3 {
-    @apply text-lg mt-10;
+    @apply text-lg mt-10 mb-2;
   }
 
   p,
   ul {
-    @apply my-5 text-black/75 dark:text-white/75 leading-relaxed;
+    @apply mb-5 text-black/75 dark:text-white/75 leading-relaxed;
   }
 
   ul {
@@ -85,10 +85,10 @@ section[data-post] {
   }
 
   blockquote {
-    @apply px-4 border-l-2 border-black dark:border-white italic;
+    @apply px-4 my-6 border-l-2 border-black/20 dark:border-white/20 italic text-black/70 dark:text-white/70;
   }
 
   a {
-    @apply underline decoration-2 decoration-cyan-500/70 underline-offset-2;
+    @apply underline underline-offset-2 decoration-black/30 hover:decoration-black/50 dark:decoration-white/30 dark:hover:decoration-white/50 transition-colors;
   }
 }
