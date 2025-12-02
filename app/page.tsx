@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 
 const Home = () => (
   <>
-    <span className="font-normal font-mono tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30">
+    <span className="font-normal font-mono tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 mb-2">
       v<AgeVersion />
     </span>
-    <div className="mb-6 flex flex-row gap-4 font-mono">
+    <div className="mb-8 flex flex-row gap-4 font-mono">
       <span className="font-normal tracking-wide inline-block text-2xl">
         <Typewriter text="bryce kalow" />
 
@@ -29,7 +29,7 @@ const Home = () => (
     </div>
     <div
       className={cn(
-        "max-w-[600px] text-lg gap-4 flex flex-col leading-relaxed"
+        "max-w-[600px] text-lg gap-5 flex flex-col leading-relaxed"
       )}
     >
       <p>
@@ -52,7 +52,7 @@ const Home = () => (
         If you're curious to learn more about me,{" "}
         <Link
           className={cn(
-            "transition-colors underline underline-offset-4 decoration-dotted decoration-black/20 hover:decoration-black/40 dark:decoration-white/20 dark:hover:decoration-white/40"
+            "transition-colors underline underline-offset-2 decoration-black/30 hover:decoration-black/50 dark:decoration-white/30 dark:hover:decoration-white/50"
           )}
           href="/about"
         >
@@ -61,7 +61,7 @@ const Home = () => (
         . You can also{" "}
         <Link
           className={cn(
-            "transition-colors underline underline-offset-4 decoration-dotted decoration-black/20 hover:decoration-black/40 dark:decoration-white/20 dark:hover:decoration-white/40"
+            "transition-colors underline underline-offset-2 decoration-black/30 hover:decoration-black/50 dark:decoration-white/30 dark:hover:decoration-white/50"
           )}
           href="/blog"
         >
@@ -70,7 +70,7 @@ const Home = () => (
         ,{" "}
         <a
           className={cn(
-            "transition-colors underline underline-offset-4 decoration-dotted decoration-black/20 hover:decoration-black/40 dark:decoration-white/20 dark:hover:decoration-white/40"
+            "transition-colors underline underline-offset-2 decoration-black/30 hover:decoration-black/50 dark:decoration-white/30 dark:hover:decoration-white/50"
           )}
           target="_blank"
           href="https://github.com/brkalow"
@@ -80,7 +80,7 @@ const Home = () => (
         , or{" "}
         <a
           className={cn(
-            "transition-colors underline underline-offset-4 decoration-dotted decoration-black/20 hover:decoration-black/40 dark:decoration-white/20 dark:hover:decoration-white/40"
+            "transition-colors underline underline-offset-2 decoration-black/30 hover:decoration-black/50 dark:decoration-white/30 dark:hover:decoration-white/50"
           )}
           target="_blank"
           href="https://x.com/brkalow"
@@ -89,12 +89,12 @@ const Home = () => (
         </a>
         .
       </p>
-      <div className="mt-4">
-        <h2 className="mb-4 border-b text-xs uppercase tracking-widest text-black/50 dark:text-white/50 border-black/5 dark:border-white/5 pb-3">
+      <div className="mt-8">
+        <h2 className="mb-5 border-b text-xs uppercase tracking-widest text-black/50 dark:text-white/50 border-black/10 dark:border-white/10 pb-2.5">
           Connect
         </h2>
-        <dl className="grid grid-cols-[100px_1fr] gap-y-3 gap-x-4 my-4 text-sm">
-          <dt className="text-black/40 dark:text-white/40">Email</dt>
+        <dl className="grid grid-cols-[100px_1fr] gap-y-2.5 gap-x-4 text-sm">
+          <dt className="text-black/40 dark:text-white/40 font-normal">Email</dt>
           <dd>
             <a
               className="transition-colors hover:text-black dark:hover:text-white"
@@ -103,7 +103,7 @@ const Home = () => (
               hello@brycekalow.name
             </a>
           </dd>
-          <dt className="text-black/40 dark:text-white/40">X</dt>
+          <dt className="text-black/40 dark:text-white/40 font-normal">X</dt>
           <dd>
             <a
               className="transition-colors hover:text-black dark:hover:text-white"
@@ -113,7 +113,7 @@ const Home = () => (
               @brkalow
             </a>
           </dd>
-          <dt className="text-black/40 dark:text-white/40">GitHub</dt>
+          <dt className="text-black/40 dark:text-white/40 font-normal">GitHub</dt>
           <dd>
             <a
               className="transition-colors hover:text-black dark:hover:text-white"
@@ -123,7 +123,7 @@ const Home = () => (
               @brkalow
             </a>
           </dd>
-          <dt className="text-black/40 dark:text-white/40">LinkedIn</dt>
+          <dt className="text-black/40 dark:text-white/40 font-normal">LinkedIn</dt>
           <dd>
             <a
               className="transition-colors hover:text-black dark:hover:text-white"

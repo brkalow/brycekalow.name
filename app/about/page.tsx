@@ -21,13 +21,13 @@ export default function AboutPage() {
     <>
       <h1
         className={cn(
-          "text-2xl mb-8 mt-0 font-normal flex gap-4 flex-row tracking-wide font-mono items-center justify-between"
+          "text-2xl mb-10 mt-0 font-normal flex gap-4 flex-row tracking-wide font-mono items-center justify-between"
         )}
       >
         <div className="flex flex-col gap-1">
           <Link
             href="/"
-            className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/60 dark:hover:text-white/60"
+            className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/50 dark:hover:text-white/50"
           >
             bryce kalow/
           </Link>
@@ -46,7 +46,7 @@ export default function AboutPage() {
         />
       </h1>
       <section data-post className="leading-relaxed">
-        <p>
+        <p className="mb-5">
           Hiya, I'm Bryce. I'm currently an engineer at{" "}
           <a
             href="https://www.clerk.com"
@@ -58,7 +58,7 @@ export default function AboutPage() {
           obsessing over developer experience, for humans and agents, and
           building a great product.
         </p>
-        <p>
+        <p className="mb-5">
           At work, I have a deep interest in creating tools and platforms for
           other developers. I've spent nearly a decade across a few companies
           working with frameworks and tooling for primarily frontend teams, but
@@ -68,7 +68,7 @@ export default function AboutPage() {
           build scalable frontend applications during times of huge
           organizational growth.
         </p>
-        <p>
+        <p className="mb-5">
           I generally love working with small, high-performing teams solving
           interesting technical and product problems in the web space. I'm not
           afraid to work across large parts of the organization and collaborate
@@ -81,7 +81,7 @@ export default function AboutPage() {
           interesting to you, let's chat!
         </p>
       </section>
-      <section className="grid auto-rows-[128px] grid-cols-2 md:grid-cols-4 gap-3 mt-8">
+      <section className="grid auto-rows-[128px] grid-cols-2 md:grid-cols-4 gap-3 mt-12">
         <figure className="row-span-1 col-span-2 relative rounded-xl overflow-hidden m-0">
           <Image
             fill

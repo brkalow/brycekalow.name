@@ -70,7 +70,7 @@ async function PostContent({ postSlug }: { postSlug: string }) {
 
   return (
     <>
-      <header className="mb-8">
+      <header className="mb-10">
         <h1
           className={cn(
             "text-2xl mt-0 font-normal flex gap-4 flex-row tracking-wide font-mono items-center justify-between"
@@ -79,7 +79,7 @@ async function PostContent({ postSlug }: { postSlug: string }) {
           <div className="flex flex-col gap-1">
             <Link
               href="/blog"
-              className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/60 dark:hover:text-white/60"
+              className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/50 dark:hover:text-white/50"
             >
               writing/
             </Link>
@@ -93,10 +93,10 @@ async function PostContent({ postSlug }: { postSlug: string }) {
         </p>
       </header>
       <section data-post>{content}</section>
-      <div className="mt-12">
+      <div className="mt-16">
         <Link
           href="/blog"
-          className="text-sm text-black/40 dark:text-white/40 transition-colors hover:text-black/60 dark:hover:text-white/60"
+          className="text-sm text-black/40 dark:text-white/40 transition-colors hover:text-black dark:hover:text-white"
         >
           ← Back to posts
         </Link>

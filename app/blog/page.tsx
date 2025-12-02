@@ -12,14 +12,14 @@ async function PostsList() {
   return (
     <>
       {posts.map((post) => (
-        <div key={post.title} className={cn("block mb-6")}>
-          <div className={cn("text-xs", "text-black/30", "dark:text-white/30")}>
+        <div key={post.title} className={cn("block mb-8")}>
+          <div className={cn("text-xs mb-1.5", "text-black/30", "dark:text-white/30")}>
             <FormattedDate date={post.published} />
           </div>
           <Link
             href={`/blog/${post.slug}`}
             className={cn(
-              "text-xl font-semibold bg-clip-text tracking-wide hover:text-transparent hover:bg-text-gradient hover:animate-gradient bg-[size:400%_100%]"
+              "text-xl font-semibold tracking-tight transition-colors hover:text-black dark:hover:text-white"
             )}
           >
             {post.title}
@@ -35,13 +35,13 @@ export default function BlogIndex() {
     <>
       <h1
         className={cn(
-          "text-2xl mb-8 mt-0 font-normal flex gap-4 flex-row tracking-wide font-mono items-center justify-between"
+          "text-2xl mb-10 mt-0 font-normal flex gap-4 flex-row tracking-wide font-mono items-center justify-between"
         )}
       >
         <div className="flex flex-col gap-1">
           <Link
             href="/"
-            className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/60 dark:hover:text-white/60"
+            className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/50 dark:hover:text-white/50"
           >
             bryce kalow/
           </Link>
