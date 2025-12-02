@@ -80,10 +80,6 @@ section[data-post] {
     @apply mb-5 text-black/75 dark:text-white/75 leading-relaxed;
   }
 
-  p:first-child {
-    @apply mt-0;
-  }
-
   ul {
     @apply list-disc list-inside;
   }
