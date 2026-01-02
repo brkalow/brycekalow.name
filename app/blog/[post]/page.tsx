@@ -4,11 +4,9 @@ import dynamic from "next/dynamic";
 import { compileMDX, MDXRemoteProps } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import { getPosts, readPostFromFile } from "../../../utilities/posts";
-import s from "./post.module.css";
 import Link from "next/link";
 import { FormattedDate } from "../../../components/formatted-date";
 import { Metadata } from "next";
-import { Reactions } from "./reactions";
 import { cn } from "lib/cn";
 
 const MDX_COMPONENTS = {
@@ -40,13 +38,14 @@ const mdxRemoteOptions: MDXRemoteProps["options"] = {
 };
 
 export async function generateStaticParams() {
-  return (await getPosts()).map((ent) => ({
-    post: ent.name.split(".")[0],
+  return (await getPosts()).map((post) => ({
+    post: post.split(".")[0],
   }));
 }
 
 export async function generateMetadata({ params }): Promise<Metadata> {
-  const post = await readPostFromFile(`${params.post}.mdx`);
+  const { post: postSlug } = await params;
+  const post = await readPostFromFile(`${postSlug}.mdx`);
 
   return {
     title: post.title,
@@ -54,10 +53,9 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   };
 }
 
-export default async function Post({ params }) {
-  // content
+async function PostContent({ postSlug }: { postSlug: string }) {
   const rawMDX = await fs.promises.readFile(
-    path.join(process.cwd(), "content", `${params.post}.mdx`),
+    path.join(process.cwd(), "content", `${postSlug}.mdx`),
     "utf-8"
   );
 
@@ -72,40 +70,44 @@ export default async function Post({ params }) {
 
   return (
     <>
-      <Link
-        href="/blog"
-        className={cn(
-          s["back-link"],
-          "font-bold text-sm mb-6 inline-block",
-          "text-black/50",
-          "dark:text-white/50"
-        )}
-      >
-        Back to posts
-      </Link>
-      <h1
-        className={cn(
-          "text-2xl mb-2 font-semibold tracking-tight text-black/90 dark:text-white/90"
-        )}
-      >
-        {frontmatter?.title}
-      </h1>
-      <p className={cn("text-sm mb-4", "text-black/40", "dark:text-white/40")}>
-        <FormattedDate date={frontmatter?.published} />
-      </p>
-      <section data-post>{content}</section>
-      <Reactions post={params.post} />
-      <section className={"mt-6"}>
-        <Link
-          href="/blog"
+      <header className="mb-10">
+        <h1
           className={cn(
-            s["back-link"],
-            "text-white/50 font-bold text-sm inline-block"
+            "text-2xl mt-0 font-normal flex gap-4 flex-row tracking-wide font-mono items-center justify-between"
           )}
         >
-          Back to posts
+          <div className="flex flex-col gap-1">
+            <Link
+              href="/blog"
+              className="font-normal font-sans tracking-widest inline-block text-xs uppercase text-black/30 dark:text-white/30 transition-colors hover:text-black/50 dark:hover:text-white/50"
+            >
+              writing/
+            </Link>
+            <span className="font-semibold">{frontmatter?.title}</span>
+          </div>
+        </h1>
+        <p
+          className={cn("text-xs mt-3", "text-black/30", "dark:text-white/30")}
+        >
+          <FormattedDate date={frontmatter?.published} />
+        </p>
+      </header>
+      <section data-post>{content}</section>
+      <div className="mt-16">
+        <Link
+          href="/blog"
+          className="text-sm text-black/40 dark:text-white/40 transition-colors hover:text-black dark:hover:text-white"
+        >
+          ← Back to posts
         </Link>
-      </section>
+      </div>
     </>
   );
+}
+
+export default async function Post({ params }) {
+  "use cache";
+  const { post: postSlug } = await params;
+
+  return <PostContent postSlug={postSlug} />;
 }

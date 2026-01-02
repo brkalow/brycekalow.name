@@ -1,18 +1,20 @@
 import { notion } from "lib/notion";
 import { getPageProperty } from "notion-utils";
-import { cache } from "react";
 
-export const fetchNoteContent = cache(async function fetchNoteContent(
-  recordId: string
-) {
+export async function fetchNoteContent(recordId: string) {
+  "use cache";
   const recordMap = await notion.getPage(recordId);
 
   return recordMap;
-});
+}
 
-export const fetchNotes = cache(async function fetchNotesCollection() {
+export async function fetchNotes() {
+  "use cache";
+  if (!process.env.NOTION_NOTES_COLLECTION_ID) {
+    return {};
+  }
   const collection = await fetchNoteContent(
-    process.env.NOTION_NOTES_COLLECTION_ID!
+    process.env.NOTION_NOTES_COLLECTION_ID
   );
 
   const notes: Record<
@@ -39,4 +41,4 @@ export const fetchNotes = cache(async function fetchNotesCollection() {
   );
 
   return notes;
-});
+}

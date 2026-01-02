@@ -12,6 +12,7 @@ interface PostWithMetadata {
 export async function readPostFromFile(
   filename: string
 ): Promise<PostWithMetadata> {
+  "use cache";
   const contents = await fs.promises.readFile(
     path.join(process.cwd(), "content", filename),
     "utf-8"
@@ -22,18 +23,20 @@ export async function readPostFromFile(
   } as PostWithMetadata;
 }
 
-export async function getPosts(): Promise<fs.Dirent[]> {
+export async function getPosts(): Promise<string[]> {
+  "use cache";
   return (
     await fs.promises.readdir(path.join(process.cwd(), "content"), {
       withFileTypes: true,
     })
-  ).filter((ent) => ent.isFile() && ent.name.endsWith(".mdx"));
+  )
+    .filter((ent) => ent.isFile() && ent.name.endsWith(".mdx"))
+    .map((ent) => ent.name);
 }
 
 export async function getPostList(): Promise<PostWithMetadata[]> {
+  "use cache";
   const posts = await getPosts();
 
-  return await Promise.all(
-    posts.map(async (post) => readPostFromFile(post.name))
-  );
+  return await Promise.all(posts.map(async (post) => readPostFromFile(post)));
 }

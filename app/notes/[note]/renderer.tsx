@@ -121,8 +121,8 @@ function Block({
         <article data-block-id={block.id}>
           <h1>{getPageTitle(content)}</h1>
           <p>
-            Lasted updated:{" "}
-            <FormattedDate date={new Date(block.last_edited_time)} />
+            Last updated:{" "}
+            <FormattedDate date={block.last_edited_time} />
           </p>
           {children}
         </article>
@@ -171,7 +171,7 @@ function Block({
       const isTopLevel =
         block.type !== content.block[block.parent_id]?.value?.type;
 
-      let output: JSX.Element | null = null;
+      let output: React.ReactNode = null;
 
       if (block.content) {
         output = (
@@ -213,7 +213,8 @@ function Block({
   }
 }
 
-async function BlockRenderer({ recordId, level = 0, blockId }) {
+async function BlockRenderer({ recordId, level = 0, blockId }: { recordId: string; level?: number; blockId?: string }) {
+  "use cache";
   const content = await fetchNoteContent(recordId);
   const id = blockId || Object.keys(content.block)[0];
   const block = content.block[id]?.value;
@@ -234,7 +235,6 @@ async function BlockRenderer({ recordId, level = 0, blockId }) {
   );
 }
 
-export async function Renderer({ recordId }) {
-  // @ts-expect-error - Async Component
+export async function Renderer({ recordId }: { recordId: string }) {
   return <BlockRenderer recordId={recordId} />;
 }

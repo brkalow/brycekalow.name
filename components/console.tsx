@@ -141,7 +141,7 @@ export default function Console({
         )}
       >
         <span
-          className={cn("grid max-w-100 overflow-x-auto m-h-[300px]")}
+          className={cn("grid max-w-full overflow-x-auto max-h-[300px]")}
           ref={linesRef}
         >
           {_lines.map((lineInputs, index) => (
