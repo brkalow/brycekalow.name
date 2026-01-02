@@ -14,7 +14,7 @@
     "framer-motion": "^12.23.24",
     "geist": "^1.2.0",
     "gray-matter": "^4.0.3",
-    "next": "^16.0.3",
+    "next": "16.0.10",
     "next-mdx-remote": "^5.0.0",
     "notion-client": "^6.16.0",
     "notion-utils": "^6.16.0",
